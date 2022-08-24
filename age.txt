@@ -1,1 +1,10 @@
 age 19
+
+//
+git checkout main 
+git branch fw20
+git checkout fw20
+git pull origin main 
+create files 
+git push origin fw20
+
