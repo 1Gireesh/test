@@ -1,21 +1,19 @@
 const express = require("express");
 const cors = require("cors");
-const productRouter = require("./product/product.routes");
+const port = 8080;
+const userRouter = require("./users/user.routes");
+const productRouter = require("./products/product.routes");
+const cartRouter = require("./cart/cart.routes");
+const connect = require("./config/db");
+
 const app = express();
-
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+app.use("/users",userRouter);
+app.use("/products",productRouter);
+app.use("/carts",cartRouter);
 
-
-
-app.use("/products",productRouter)
-
-
-app.get("/",(req,res)=>{
-    res.json({"boo":"osao"})
+app.listen(port,async ()=>{
+    await connect();
+    console.log(`http://localhost:${port}/`);
 })
-
-app.listen(8000,()=>{
-    console.log("http://localhost:8000/");
-})
-
