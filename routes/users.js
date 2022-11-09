@@ -6,9 +6,10 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource  dsha');
 });
 
-
 router.post ("/",(req,res)=>{
+  console.log(req)
   res.send(req.body);
+
 })
 
 module.exports = router;
